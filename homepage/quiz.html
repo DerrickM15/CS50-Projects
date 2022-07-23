@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Quiz</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const form = document.getElementById("quiz-form");
+                    const trick = form.elements['trick'];
+                    var correct1 = 0;
+                    var correct2 = 0;
+                    var correct3 = 0;
+                    if (trick.value == 'backflip') {
+                        document.querySelector('#checkAnswer1').innerHTML = "";
+                        correct1 = 1;
+                    } else {
+                        document.querySelector('#checkAnswer1').innerHTML = "Incorrect!";
+                        correct1 = 0;
+                    }
+                    if (document.getElementById("dislike2").checked == true || document.getElementById("dislike2").checked == true) {
+                        document.querySelector('#checkAnswer2').innerHTML = "Incorrect!";
+                        correct2 = 0;
+                    } else if(document.getElementById("dislike1").checked == true) {
+                        document.querySelector('#checkAnswer2').innerHTML = "";
+                        correct2 = 1;
+                    }
+                    if(document.getElementById("sister1").checked == true && document.getElementById("sister4").checked == true && document.getElementById("sister2").checked == false && document.getElementById("sister3").checked == false) {
+                        document.querySelector('#checkAnswer3').innerHTML = "";
+                        correct3 = 1;
+                    } else if (document.getElementById("sister1").checked == true || document.getElementById("sister2").checked == true || document.getElementById("sister3").checked == true || document.getElementById("sister4").checked == true) {
+                        document.querySelector('#checkAnswer3').innerHTML = "Incorrect!";
+                        correct3 = 0;
+                    }
+                    if (correct1 == 1 && correct2 == 1 && correct3 == 1) {
+                        document.querySelector('#allCorrect').innerHTML = "Great Job! All Answers are Correct!"
+                    } else {
+                        document.querySelector('#allCorrect').innerHTML = ""
+                    }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div id="navbarNav">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="personality.html">Personality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="talents.html">Talents</a></li>
+                    <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites</a></li>
+                    <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h1>Rory Quiz</h1>
+        <form id="quiz-form">
+            <label for="trick">Which of these tricks can Rory not do?</label><br>
+            <select name="trick" id="trick">
+                <option value="" disabled selected>Select</option>
+                <option value="shake" class="incorrect">shake</option>
+                <option value="lie down" class="incorrect">lie down</option>
+                <option value="sit" class="incorrect">sit</option>
+                <option value="backflip" class="correct">backflip</option>
+                <option value="roll over" class="incorrect">roll over</option>
+            </select>
+            <p id="checkAnswer1"></p>
+            <p>What does Rory dislike seeing people on?</p>
+            <input type="radio" class="correct" id="dislike1" name="rory-dislike" value="rollerblades">
+            <label for ="dislike1"></label>Rollerblades<br>
+            <input type="radio" class="incorrect" id="dislike2" name="rory-dislike" value="bicycles">
+            <label for ="dislike2"></label>Bicycles<br>
+            <input type="radio" class="incorrect" id="dislike3" name="rory-dislike" value="skateboard">
+            <label for ="dislike3"></label>Skateboard<br>
+            <p id="checkAnswer2"></p>
+            <p>What are Rory's sisters' names?</p>
+            <input type="checkbox" class="correct" id="sister1" name="sister1" value="coraline">
+            <label for="sister1">Coraline</label><br>
+            <input type="checkbox" class="incorrect" id="sister2" name="sister2" value="michele">
+            <label for="sister2">Michele</label><br>
+            <input type="checkbox" class="incorrect" id="sister3" name="sister3" value="brita">
+            <label for="sister3">Brita</label><br>
+            <input type="checkbox" class="correct" id="sister4" name="sister4" value="lyra">
+            <label for="sister4">Lyra</label><br>
+            <p id="checkAnswer3"></p><br>
+            <input type="submit" id="submit">
+            <p id="allCorrect"></p>
+        </form>
+
+        <p></p>
+    </body>
+</html>

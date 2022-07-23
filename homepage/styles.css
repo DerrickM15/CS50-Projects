@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    background-color: #cccccc;
+}
+div (
+    display: block;
+)
+
+ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
+ol {
+    list-style: none;
+}
+
+#index-body {
+    display: inline-block;
+    width: 45%;
+}
+
+#personality-body {
+    color: white;
+    background-repeat: no-repeat;
+    background-image: url("IMG_2568.JPG");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 45%;
+}
+#personality-content {
+    width: 45%
+}
+
+video {
+    width: 40%;
+    overflow: hidden;
+    display: inline-flex;
+    height: 10%;
+}

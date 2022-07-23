@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: Sorted tests were fastest for each array size. Reverse tests generally took longer.
+
+sort2 uses: Merge Sort
+
+How do you know?: Quickest tests overall, sorted tests weren't any faster than random or reversed tests.
+
+sort3 uses: Selection sort
+
+How do you know?: each of the 5000, 10000, and 50000 tests respectfully, took around the same amount of time, meaning the best and worst case scenario was the same
