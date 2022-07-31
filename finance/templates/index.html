@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <tr>
+            <thead class="thead-dark">
+                <th>Current Cash</th>
+                <th>Grand Total</th>
+            </thead>
+        </tr>
+        <tr>
+            <td>{{ user_cash | usd}}</td>
+            <td>{{ (stock_value + user_cash )| usd}}</td>
+        </tr>
+    </table>
+    <h2>Your Stocks, {{ name }}:</h2>
+    <table class="table">
+        <tr>
+            <thead class="thead-dark">
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Total Shares</th>
+                    <th>Purchase Price</th>
+                    <th>Current Price</th>
+                    <th>Total Cost</th>
+            </thead>
+        </tr>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock["symbol"] }}</td>
+            <td>{{ stock["name"] }}</td>
+            <td>{{ stock["SUM(shares)"] }}</td>
+            <td>{{ stock["price"] | usd  }}</td>
+            <td>{{ value_dict[stock["symbol"]] | usd }}</td>
+            <td>{{ stock["SUM(total_cost)"] | usd  }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h4>Add Cash:</h4>
+    <form action="/" method="post">
+        <input name="amount" type="number" placeholder="Amount">
+        <button name="submit" type="submit" value="Submit">Submit</button>
+    </form>
+{% endblock %}

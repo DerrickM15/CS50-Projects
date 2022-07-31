@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <tr>
+        <thead class="thead-dark">
+                <th>Name</th>
+                <th>Price</th>
+                <th>Symbol</th>
+        </thead>
+    </tr>
+    <tr>
+        <td>{{ symbol["name"] }}</td>
+        <td>{{ symbol["price"] | usd}}</td>
+        <td>{{ symbol["symbol"] }}</td>
+    </tr>
+  </table>
+
+{% endblock %}
